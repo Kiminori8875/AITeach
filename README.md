@@ -34,6 +34,9 @@ Serviços: Detalhamento das soluções oferecidas (ML, DL, NLP, CV).
 Contato: Formulário funcional e canais de comunicação.  
 
 # Como executar:
-1. Extraia os arquivos compactados
-2. Abra a pasta AiTeach_Hackteen
-3. Abra o arquivo .html em seu navegador
+1. Acesse o repositório GitHub: https://github.com/Kiminori8875/AITeach
+2. Clique na opção "<> Code" de cor verde
+3. Faça o download do arquivo .Zip
+4. Extraia os arquivos compactados
+5. Abra a pasta AiTeach-main
+6. Abra o arquivo .html em seu navegador
