@@ -1,0 +1,1589 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AITeach - Otimizando o futuro da inteligência artificial com modelos treinados. Serviços especializados em treinamento e otimização de modelos de Machine Learning, Deep Learning, NLP e Visão Computacional.">
+    <title>AITeach - Otimizando o futuro da inteligência artificial com modelos treinados</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        button {
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --primary-light: #8b5cf6;
+            --secondary: #06b6d4;
+            --accent: #f59e0b;
+            
+            --text-primary: #f8fafc;
+            --text-secondary: #cbd5e1;
+            --text-light: #9ca3af;
+            --text-white: #ffffff;
+            
+            --bg-primary: #1a1a2e;
+            --bg-secondary: #2c2c4a;
+            --bg-dark: #1a1a2e;
+            --bg-light: #3a3a5e;
+            
+            --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            --gradient-secondary: linear-gradient(135deg, var(--secondary) 0%, #0891b2 100%);
+            
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            
+            --radius-sm: 0.375rem;
+            --radius-md: 0.5rem;
+            --radius-lg: 0.75rem;
+            --radius-xl: 1rem;
+            
+            --container-max-width: 1200px;
+            --section-padding: 5rem 0;
+            --section-padding-sm: 3rem 0;
+            
+            --transition-fast: 0.15s ease-in-out;
+            --transition-normal: 0.3s ease-in-out;
+            --transition-slow: 0.5s ease-in-out;
+            
+            --z-fixed: 1030;
+        }
+
+        .container {
+            max-width: var(--container-max-width);
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-align: center;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            text-align: center;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .highlight {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 500;
+            border-radius: var(--radius-md);
+            transition: all var(--transition-normal);
+            cursor: pointer;
+            text-decoration: none;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: var(--text-white);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: var(--text-white);
+            transform: translateY(-2px);
+        }
+
+        .btn-large {
+            padding: 1rem 2rem;
+            font-size: 1.125rem;
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(26, 26, 46, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            z-index: var(--z-fixed);
+            transition: all var(--transition-normal);
+        }
+
+        .navbar {
+            padding: 1rem 0;
+        }
+
+        .navbar .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            transition: all var(--transition-normal);
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-icon {
+            font-size: 2rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: var(--text-secondary);
+            transition: all var(--transition-normal);
+            position: relative;
+            padding: 0.5rem 0;
+            cursor: pointer;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--primary);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            transition: width var(--transition-normal);
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            padding: 0.5rem;
+        }
+
+        .hamburger {
+            width: 25px;
+            height: 3px;
+            background: var(--text-primary);
+            transition: all var(--transition-normal);
+        }
+
+        .hero {
+            padding: 8rem 0 5rem;
+            background: linear-gradient(135deg, #1a1a2e 0%, #2c2c4a 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-description {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-graphic {
+            position: relative;
+            width: 400px;
+            height: 400px;
+        }
+
+        .floating-card {
+            position: absolute;
+            background: var(--bg-secondary);
+            border-radius: var(--radius-lg);
+            padding: 1rem;
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-card.card-1 {
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .floating-card.card-2 {
+            top: 10%;
+            right: 20%;
+            animation-delay: 1.5s;
+        }
+
+        .floating-card.card-3 {
+            bottom: 30%;
+            left: 20%;
+            animation-delay: 3s;
+        }
+
+        .floating-card.card-4 {
+            bottom: 20%;
+            right: 10%;
+            animation-delay: 4.5s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .card-icon {
+            font-size: 1.5rem;
+        }
+
+        .section {
+            padding: var(--section-padding);
+        }
+
+        .section.bg-secondary {
+            background: var(--bg-secondary);
+        }
+
+        .section.bg-primary {
+            background: var(--gradient-primary);
+            color: white;
+        }
+
+        .section.bg-dark {
+            background: var(--bg-dark);
+            color: white;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: var(--bg-secondary);
+            padding: 2rem;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            text-align: center;
+            transition: all var(--transition-normal);
+            border: 1px solid transparent;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--primary);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .feature-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-description {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--bg-secondary);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+        }
+
+        .stat-number {
+            display: block;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .mvv-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+        }
+
+        .mvv-card {
+            background: var(--bg-secondary);
+            padding: 3rem;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-lg);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mvv-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-primary);
+        }
+
+        .mvv-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .mvv-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .mvv-description {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .value-item {
+            background: var(--bg-secondary);
+            padding: 2rem;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            text-align: center;
+            transition: all var(--transition-normal);
+        }
+
+        .value-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .value-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .value-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .value-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .team-member {
+            background: var(--bg-secondary);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+            transition: all var(--transition-normal);
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .member-photo {
+            height: 200px;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .photo-placeholder {
+            font-size: 4rem;
+            color: white;
+        }
+
+        .member-info {
+            padding: 2rem;
+        }
+
+        .member-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .member-role {
+            font-size: 1rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .member-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .member-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: var(--bg-light);
+            color: var(--text-secondary);
+            padding: 0.25rem 0.75rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .service-detail {
+            padding: var(--section-padding);
+        }
+
+        .service-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .service-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .service-description {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .service-features li {
+            padding: 0.5rem 0;
+            color: var(--text-secondary);
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .service-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-weight: bold;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tech-tag {
+            background: var(--primary);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-form-container {
+            background: var(--bg-secondary);
+            padding: 2.5rem;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-input,
+        .form-select,
+        .form-textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #3a3a5e;
+            border-radius: var(--radius-md);
+            font-size: 1rem;
+            transition: all var(--transition-normal);
+            background: var(--bg-light);
+            color: var(--text-primary);
+        }
+
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-error {
+            display: block;
+            color: #ef4444;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+            min-height: 1.25rem;
+        }
+
+        .cta {
+            padding: var(--section-padding);
+            background: var(--gradient-primary);
+            color: white;
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cta-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .cta-description {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta .btn-primary {
+            background: white;
+            color: var(--primary);
+        }
+
+        .cta .btn-primary:hover {
+            background: var(--bg-light);
+            transform: translateY(-2px);
+        }
+
+        .footer {
+            background: var(--bg-dark);
+            color: var(--text-white);
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-brand .logo {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .footer-description {
+            color: #9ca3af;
+            line-height: 1.6;
+        }
+
+        .footer-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .footer-links a {
+            color: #9ca3af;
+            transition: color var(--transition-normal);
+            cursor: pointer;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-contact p {
+            color: #9ca3af;
+            margin-bottom: 0.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: all var(--transition-normal);
+            font-size: 1.25rem;
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            text-align: center;
+            color: #9ca3af;
+        }
+
+        .section.hidden {
+            display: none;
+        }
+
+        @media (max-width: 1024px) {
+            .hero .container {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 3rem;
+            }
+            
+            .service-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--bg-secondary);
+                flex-direction: column;
+                padding: 2rem;
+                box-shadow: var(--shadow-lg);
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: all var(--transition-normal);
+            }
+            
+            .nav-menu.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            .nav-toggle {
+                display: flex;
+            }
+            
+            .nav-toggle.active .hamburger:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+            
+            .nav-toggle.active .hamburger:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .nav-toggle.active .hamburger:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -6px);
+            }
+            
+            .hero {
+                padding: 6rem 0 3rem;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .service-title {
+                font-size: 2rem;
+            }
+            
+            .cta-title {
+                font-size: 2rem;
+            }
+            
+            .hero-buttons {
+                justify-content: center;
+            }
+            
+            .about-stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .mvv-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .values-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+            
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .social-links {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 0.75rem;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.75rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .contact-form-container {
+                padding: 1.5rem;
+            }
+            
+            .floating-card {
+                padding: 0.75rem;
+                font-size: 0.875rem;
+            }
+            
+            .hero-graphic {
+                width: 300px;
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-brand">
+                    <a href="#" class="logo">
+                        <img src="AITeach.png" width="50" height="50">
+                        <span class="logo-text">AITeach</span>
+                    </a>
+                </div>
+                <ul class="nav-menu" id="nav-menu">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-section="home">Início</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-section="about">Sobre Nós</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-section="services">Serviços</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-section="contact">Contato</a>
+                    </li>
+                </ul>
+                <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menu de navegação">
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="section">
+            <div class="hero">
+                <div class="container">
+                    <div class="hero-content">
+                        <h1 class="hero-title">
+                            Desbloqueie o <span class="highlight">Potencial</span> de seus Modelos de 
+                            <span class="highlight">Inteligência Artificial</span>
+                        </h1>
+                        <p class="hero-description">
+                            Oferecemos serviços especializados de treinamento e otimização de modelos de IA para empresas, garantindo performance superior e resultados inovadores.
+                        </p>
+                        <div class="hero-buttons">
+                            <a href="#services" class="btn btn-primary" data-section="services">Nossos Serviços</a>
+                            <a href="#contact" class="btn btn-secondary" data-section="contact">Fale Conosco</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="container">
+                    <h2 class="section-title">Por que escolher a AITeach?</h2>
+                    <div class="features-grid">
+                        <article class="feature-card">
+                            <div class="feature-icon">🧠</div>
+                            <h3 class="feature-title">Especialistas em Otimização de IA</h3>
+                            <p class="feature-description">
+                                Nossa equipe de cientistas de dados e engenheiros de ML otimiza seus modelos para máxima eficiência e precisão.
+                            </p>
+                        </article>
+                        <article class="feature-card">
+                            <div class="feature-icon">🚀</div>
+                            <h3 class="feature-title">Metodologia de Treinamento Avançada</h3>
+                            <p class="feature-description">
+                                Utilizamos técnicas de treinamento e validação de última geração para garantir a robustez dos seus modelos.
+                            </p>
+                        </article>
+                        <article class="feature-card">
+                            <div class="feature-icon">🌐</div>
+                            <h3 class="feature-title">Resultados Comprovados</h3>
+                            <p class="feature-description">
+                                Modelos de IA otimizados que entregam performance superior e vantagem competitiva.
+                            </p>
+                        </article>
+                        <article class="feature-card">
+                            <div class="feature-icon">📈</div>
+                            <h3 class="feature-title">Escalabilidade e Performance</h3>
+                            <p class="feature-description">
+                                Garanta que seus modelos de IA sejam escaláveis e performem de forma consistente em qualquer ambiente.
+                            </p>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="section hidden bg-secondary">
+            <div class="container">
+                <h1 class="section-title">Nossa Jornada na <span class="highlight">IA</span></h1>
+                <p class="section-subtitle">
+                    Conheça nossa história, valores e a equipe que impulsiona a inovação em IA
+                </p>
+
+                <div class="about-content">
+                    <div class="about-text">
+                        <h2 class="section-title">Nossa História</h2>
+                        <p class="about-description">
+                            A AITeach nasceu da necessidade de otimizar e refinar modelos de Inteligência Artificial para empresas. Começamos com a missão de transformar o potencial bruto da IA em soluções de alto impacto.
+                        </p>
+                        <p class="about-description">
+                            Hoje, somos parceiros estratégicos na otimização de IA, com uma equipe de especialistas que elevam a performance de modelos complexos, sempre com foco na excelência e inovação.
+                        </p>
+                    </div>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">5+</span>
+                            <span class="stat-label">Modelos Otimizados</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">10+</span>
+                            <span class="stat-label">Empresas Parceiras</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">1</span>
+                            <span class="stat-label">Anos de Liderança em Otimização de IA</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">4+</span>
+                            <span class="stat-label">Especialistas em IA</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="container">
+                    <div class="mvv-grid">
+                        <article class="mvv-card">
+                            <div class="mvv-icon">🎯</div>
+                            <h3 class="mvv-title">Missão</h3>
+                            <p class="mvv-description">
+                                Otimizar e refinar modelos de Inteligência Artificial para empresas, garantindo que alcancem seu potencial máximo e impulsionem a inovação e o crescimento sustentável.
+                            </p>
+                        </article>
+                        <article class="mvv-card">
+                            <div class="mvv-icon">🔮</div>
+                            <h3 class="mvv-title">Visão</h3>
+                            <p class="mvv-description">
+                                Ser a principal referência global em otimização e treinamento de modelos de IA, reconhecida pela excelência, relevância e impacto na performance de sistemas inteligentes.
+                            </p>
+                        </article>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section bg-secondary">
+                <div class="container">
+                    <h2 class="section-title">Nossos Valores</h2>
+                    <div class="values-grid">
+                        <div class="value-item">
+                            <div class="value-icon">💡</div>
+                            <h3 class="value-title">Inovação</h3>
+                            <p class="value-description">
+                                Fomentamos a curiosidade e a busca contínua por novas abordagens na otimização de modelos de IA.
+                            </p>
+                        </div>
+                        <div class="value-item">
+                            <div class="value-icon">⭐</div>
+                            <h3 class="value-title">Excelência</h3>
+                            <p class="value-description">
+                                Comprometimento com a qualidade superior em todos os nossos programas e interações.
+                            </p>
+                        </div>
+                        <div class="value-item">
+                            <div class="value-icon">🎯</div>
+                            <h3 class="value-title">Impacto</h3>
+                            <p class="value-description">
+                                Criamos valor real para nossos clientes e para a sociedade através da otimização e aplicação da IA.
+                            </p>
+                        </div>
+                        <div class="value-item">
+                            <div class="value-icon">🤝</div>
+                            <h3 class="value-title">Colaboração</h3>
+                            <p class="value-description">
+                                Acreditamos no poder da colaboração para otimizar modelos e compartilhar conhecimentos.
+                            </p>
+                        </div>
+                        <div class="value-item">
+                            <div class="value-icon">⚖️</div>
+                            <h3 class="value-title">Ética</h3>
+                            <p class="value-description">
+                                Promovemos o uso responsável e ético na otimização e aplicação da Inteligência Artificial.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="section hidden">
+            <div class="container">
+                <h1 class="section-title">Nossos <span class="highlight">Serviços de Otimização</span> de Modelos de IA</h1>
+                <p class="section-subtitle">
+                    Especialistas em treinamento e refinamento de modelos de Machine Learning, Deep Learning, NLP e Visão Computacional.
+                </p>
+            </div>
+
+            <div class="service-detail">
+                <div class="container">
+                    <div class="service-content">
+                        <div class="service-text">
+                            <div class="service-icon">🤖</div>
+                            <h2 class="service-title">Otimização de Machine Learning</h2>
+                            <p class="service-description">
+                                Refinamos seus modelos de Machine Learning para máxima precisão e eficiência, desde a seleção de algoritmos até o ajuste de hiperparâmetros.
+                            </p>
+                            <ul class="service-features">
+                                <li>Seleção de Algoritmos</li>
+                                <li>Ajuste de Hiperparâmetros</li>
+                                <li>Validação Cruzada</li>
+                                <li>Otimização de Performance</li>
+                            </ul>
+                            <div class="tech-tags">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Scikit-learn</span>
+                                <span class="tech-tag">TensorFlow</span>
+                            </div>
+                        </div>
+                        <div class="service-image">
+                            <div style="width: 100%; height: 300px; background: var(--gradient-primary); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; color: white; font-size: 4rem;">
+                                <img src="OPML.jpg" width="100%" height="300px">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-detail bg-secondary">
+                <div class="container">
+                    <div class="service-content">
+                        <div class="service-image">
+                            <div style="width: 100%; height: 300px; background: var(--gradient-secondary); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; color: white; font-size: 4rem;">
+                                <img src="Deep Learning.png">
+                            </div>
+                        </div>
+                        <div class="service-text">
+                            <div class="service-icon">🧠</div>
+                            <h2 class="service-title">Ajuste Fino de Deep Learning</h2>
+                            <p class="service-description">
+                                Especialistas em ajustar redes neurais complexas para tarefas específicas, garantindo performance superior em Deep Learning.
+                            </p>
+                            <ul class="service-features">
+                                <li>Otimização de CNNs</li>
+                                <li>Ajuste de RNNs</li>
+                                <li>Transfer Learning Avançado</li>
+                                <li>Otimização de Modelos Complexos</li>
+                            </ul>
+                            <div class="tech-tags">
+                                <span class="tech-tag">TensorFlow</span>
+                                <span class="tech-tag">Keras</span>
+                                <span class="tech-tag">PyTorch</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-detail">
+                <div class="container">
+                    <div class="service-content">
+                        <div class="service-text">
+                            <div class="service-icon">💬</div>
+                            <h2 class="service-title">Refinamento de Modelos de NLP</h2>
+                            <p class="service-description">
+                                Otimizamos modelos de Processamento de Linguagem Natural para melhor compreensão, geração e análise de texto em diversas aplicações.
+                            </p>
+                            <ul class="service-features">
+                                <li>Otimização de Análise de Sentimentos</li>
+                                <li>Refinamento de Chatbots</li>
+                                <li>Melhora de Tradução Automática</li>
+                                <li>Ajuste de Geração de Texto</li>
+                            </ul>
+                            <div class="tech-tags">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">NLTK</span>
+                                <span class="tech-tag">SpaCy</span>
+                            </div>
+                        </div>
+                        <div class="service-image">
+                            <div style="width: 100%; height: 300px; background: var(--gradient-primary); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; color: white; font-size: 4rem;">
+                                <img src="NPL.jpeg">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-detail bg-secondary">
+                <div class="container">
+                    <div class="service-content">
+                        <div class="service-image">
+                            <div style="width: 100%; height: 300px; background: var(--gradient-secondary); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; color: white; font-size: 4rem;">
+                                <img src="VC.webp">
+                            </div>
+                        </div>
+                        <div class="service-text">
+                            <div class="service-icon">👁️</div>
+                            <h2 class="service-title">Calibração de Visão Computacional</h2>
+                            <p class="service-description">
+                                Aprimoramos modelos de Visão Computacional para reconhecimento de objetos, detecção facial e análise de imagens com alta precisão.
+                            </p>
+                            <ul class="service-features">
+                                <li>Otimização de Reconhecimento de Objetos</li>
+                                <li>Ajuste de Detecção Facial</li>
+                                <li>Calibração de Análise de Imagens</li>
+                                <li>Refinamento de Processamento de Vídeos</li>
+                            </ul>
+                            <div class="tech-tags">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">OpenCV</span>
+                                <span class="tech-tag">Pillow</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section hidden bg-secondary">
+            <div class="container">
+                <h1 class="section-title">Fale Conosco e <span class="highlight">Otimize seus Modelos de IA</span></h1>
+                <p class="section-subtitle">
+                    Estamos prontos para ajudar sua empresa a levar seus modelos de Inteligência Artificial ao próximo nível.
+                </p>
+
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h2 class="section-title">Vamos conversar?</h2>
+                        <p class="about-description">
+                            Tem interesse em nossos cursos de IA? Precisa de consultoria? Ou simplesmente quer saber mais sobre nossos programas? Entre em contato conosco através dos canais abaixo ou preencha o formulário ao lado.
+                        </p>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">✉️</div>
+                            <div class="contact-details">
+                                <h3>Email</h3>
+                                <p>aiteachcompany@gmail.com</p>
+                                <small>Respondemos em até 24 horas</small>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">📞</div>
+                            <div class="contact-details">
+                                <h3>Telefone</h3>
+                                <p>+55 (14) 997998321</p>
+                                <small>Seg-Sex, 9h às 18h</small>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">📍</div>
+                            <div class="contact-details">
+                                <h3>Localização</h3>
+                                <p>Ourinhos, SP</p>
+                                <small>Otimizando e ensinando IA</small>
+                            </div>
+                        </div>
+
+                        <h3>Siga-nos nas redes sociais</h3>
+                        <div class="social-links">
+                            <a href="#" class="social-link">📷</a>
+                            <a href="#" class="social-link">🐦</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-form-container">
+                        <h2>Envie sua mensagem</h2>
+                        <form class="contact-form" id="contact-form">
+                            <div class="form-group">
+                                <label for="name" class="form-label">Nome completo *</label>
+                                <input type="text" id="name" name="name" class="form-input" required placeholder="Seu nome completo">
+                                <span class="form-error" id="name-error"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email" class="form-label">Email *</label>
+                                <input type="email" id="email" name="email" class="form-input" required placeholder="seu@email.com">
+                                <span class="form-error" id="email-error"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone" class="form-label">Telefone</label>
+                                <input type="tel" id="phone" name="phone" class="form-input" placeholder="(11) 999999999">
+                                <span class="form-error" id="phone-error"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="company" class="form-label">Empresa</label>
+                                <input type="text" id="company" name="company" class="form-input" placeholder="Nome da sua empresa">
+                                <span class="form-error" id="company-error"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="service" class="form-label">Serviço de interesse</label>
+                                <select id="service" name="service" class="form-select">
+                                    <option value="">Selecione um serviço</option>
+                                    <option value="ml">Otimização de ML</option>
+                                    <option value="dl">Ajuste Fino de DL</option>
+                                    <option value="nlp">Refinamento de NLP</option>
+                                    <option value="cv">Calibração de Visão</option>
+                                    <option value="consultoria">Consultoria em IA</option>
+                                    <option value="outros">Outros</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message" class="form-label">Mensagem *</label>
+                                <textarea 
+                                    id="message" 
+                                    name="message" 
+                                    class="form-textarea" 
+                                    rows="5" 
+                                    required 
+                                    placeholder="Conte-nos mais sobre seus modelos de IA, desafios e objetivos de otimização..."
+                                ></textarea>
+                                <span class="form-error" id="message-error"></span>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="cta">
+            <div class="container">
+                <div class="cta-content">
+                    <h2 class="cta-title">Pronto para Otimizar seus Modelos de IA?</h2>
+                    <p class="cta-description">
+                        Junte-se à AITeach e transforme o potencial dos seus modelos de Inteligência Artificial em resultados concretos.
+                    </p>
+                    <a href="#services" class="btn btn-primary btn-large" data-section="services">Explore Nossos Serviços</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <img src="AITeach.png" width="50" height="50">
+                        <span class="logo-text">AITeach</span>
+                    </a>
+                    <p class="footer-description">
+                        Capacitando o futuro da inteligência artificial desde 2025.
+                    </p>
+                </div>
+
+                <div class="footer-section">
+                    <h3 class="footer-title">Links Rápidos</h3>
+                    <div class="footer-links">
+                        <a data-section="home">Início</a>
+                        <a data-section="about">Sobre Nós</a>
+                        <a data-section="services">Serviços</a>
+                        <a data-section="contact">Contato</a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3 class="footer-title">Serviços</h3>
+                    <div class="footer-links">
+                        <a>Otimização de ML</a>
+                        <a>Ajuste Fino de DL</a>
+                        <a>Refinamento de NLP</a>
+                        <a>Calibração de Visão</a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3 class="footer-title">Contato</h3>
+                    <div class="footer-contact">
+                        <p>📧 aiteachcompany@gmail.com</p>
+                        <p>📞 +55 (14) 997998321</p>
+                        <p>📍 São Paulo, SP</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-link">📷</a>
+                        <a href="#" class="social-link">🐦</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 AITeach. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const navToggle = document.getElementById('nav-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('section');
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            navToggle.classList.toggle('active');
+        });
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                navToggle.classList.remove('active');
+            });
+        });
+        function showSection(sectionId) {
+            sections.forEach(section => {
+                if (section.id === sectionId) {
+                    section.classList.remove('hidden');
+                } else {
+                    section.classList.add('hidden');
+                }
+            });
+            navLinks.forEach(link => {
+                if (link.getAttribute('data-section') === sectionId) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        }
+        document.querySelectorAll('[data-section]').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const sectionId = link.getAttribute('data-section');
+                showSection(sectionId);
+            });
+        });
+        const contactForm = document.getElementById('contact-form');
+        
+        if (contactForm) {
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                document.querySelectorAll('.form-error').forEach(error => {
+                    error.textContent = '';
+                });
+                const formData = new FormData(contactForm);
+                const name = formData.get('name');
+                const email = formData.get('email');
+                const message = formData.get('message');
+
+                let isValid = true;
+                if (!name || name.trim().length < 2) {
+                    document.getElementById('name-error').textContent = 'Nome deve ter pelo menos 2 caracteres';
+                    isValid = false;
+                }
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!email || !emailRegex.test(email)) {
+                    document.getElementById('email-error').textContent = 'Email inválido';
+                    isValid = false;
+                }
+                if (!message || message.trim().length < 10) {
+                    document.getElementById('message-error').textContent = 'Mensagem deve ter pelo menos 10 caracteres';
+                    isValid = false;
+                }
+
+                if (isValid) {
+                    alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
+                    contactForm.reset();
+                }
+            });
+        }
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        showSection('home');
+    </script>
+</body>
+</html>
+
